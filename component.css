@@ -20,15 +20,15 @@ html {
   }
 }
 
-
 body {
   margin: 0;
 
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   color: var(--main-color);
 }
 
-h2, p {
+h2,
+p {
   margin: 0;
 }
 
@@ -37,13 +37,25 @@ h2, p {
   padding: 1em;
 
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-gap: 1em;
+}
+.pic_container {
+  grid-column: 1/-1;
+  /* width: 100%; */
+}
+.pic {
+  width: 100%;
+  border-radius: 2rem;
+}
+.card-description {
+  margin-top: 1rem;
+  line-height: 1.1rem;
 }
 
 @media (max-width: 680px) {
   .grid-cards {
-    padding: .5em;
+    padding: 0.5em;
 
     grid-template-columns: 1fr;
   }
@@ -51,13 +63,13 @@ h2, p {
 
 /* CARD */
 .card {
-  padding: 2em;
+  /* padding: 2em; */
 
-  display: flex;
-
+  display: grid;
+  grid-template-columns: 70% 30%;
 
   background-color: var(--background-color);
-  border: .1rem solid var(--border-color);
+  border: 0.1rem solid var(--border-color);
   border-radius: 2rem;
 }
 @media (max-width: 320px) {
@@ -71,6 +83,7 @@ h2, p {
 /* card content */
 .card-content {
   margin-right: 1rem;
+  padding: 2rem 0 1rem 2rem;
 }
 
 .card-title {
@@ -80,16 +93,16 @@ h2, p {
 
 .card-subtitle {
   text-transform: uppercase;
-}
-
-.card-description {
-
+  font-weight: bold;
 }
 
 /* card graphic */
 .card-graphic {
-  flex-basis: 20%;
+  padding: 2rem 2rem 2rem 0;
+  width: 130px;
   flex-shrink: 0;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .card-number {
@@ -97,9 +110,31 @@ h2, p {
 }
 
 .card-symbol {
-
+  display: flex;
+  flex-direction: column-reverse;
 }
 
+.symbol_line {
+  height: 6px;
+  margin-bottom: 10px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 43%,
+    rgba(238, 238, 238, 1) 43%,
+    rgba(238, 238, 238, 1) 59%,
+    rgba(31, 31, 31, 1) 59%,
+    rgba(28, 28, 28, 1) 71%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+.full_symbol_line {
+  background: var(--main-color);
+  height: 6px;
+  width: 100%;
+  margin-bottom: 10px;
+}
 @media (max-width: 320px) {
   .card-graphic {
     display: flex;
@@ -113,4 +148,3 @@ h2, p {
     order: -1;
   }
 }
-
